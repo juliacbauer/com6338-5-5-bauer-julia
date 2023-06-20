@@ -25,11 +25,11 @@ form.onsubmit = function(e) {
     // Make bullet points show input
     taskButton.textContent = task
     // Strike through
-    taskButton.onclick = function() {
-        taskButton.style = 'text-decoration: line-through'
+    taskButton.onclick = function(e) {
+        e.target.parentElement.style.textDecoration = 'line-through'
         // Remove on second click
-        taskButton.onclick = function() {
-        taskList.remove()
+        e.target.onclick = function(e) {
+        e.target.parentElement.remove()
         }
     }
 }
